@@ -4,7 +4,7 @@ let s3 = new AWS.S3()
 
 export function fetchConfig() {
     return new Promise((resolve, reject) => {
-        let stage = process.env.Stage;
+        let stage = process.env.Stage || 'CODE';
         if (stage != 'CODE' && stage != 'PROD') {
             reject(`invalid stage: ${stage}, please fix Stage env variable`);
             return;
